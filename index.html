@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-container">
+        <img src="./images/lol.png" alt="lol icon">
+        <h1>League of Legends Memory Game</h1>
+        
+        <div class="difficulty-selection">
+            <label for="difficulty">Escolha a dificuldade:</label>
+            <select id="difficulty">
+                <option value="facil">Fácil </option>
+                <option value="medio">Médio </option>
+                <option value="dificil">Difícil </option>
+            </select>
+        </div>
+
+        <div class="name-input">
+            <label for="player-name">Digite seu nome:</label>
+            <input type="text" id="player-name" placeholder="Seu nome" required>
+        </div>
+
+        <button id="start-game">Iniciar Jogo</button>
+    </div>
+    
+    <div class="ranking">
+        <div class="difficulty-ranking">
+            <select id="difficulty-ranking">
+                <option value="facil">Fácil </option>
+                <option value="medio">Médio </option>
+                <option value="dificil">Difícil </option>
+            </select>
+        </div>
+        <h2>Ranking</h2>
+
+        <ul id="result"></ul>
+    </div>
+    <script src="./js/login.js"></script>
+</body>
+</html>
