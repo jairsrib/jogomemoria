@@ -29,28 +29,24 @@ let secondCard = '';
 const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-card');
 
-  if (disabledCards.length === 24) {
-    clearInterval(this.loop);
-    alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${timer.innerHTML}`);
-    localStorage.setItem("time", timer.innerHTML);
-    let tempo = parseInt(timer.innerHTML);
-    const tempoRank = [tempo];
+  if (disabledCards.length === 2) {
+    setTimeout(function ganhou() {
+      clearInterval(this.loop);
 
-    const tempo1 = parseInt(localStorage.getItem("tempoM2"));
-    tempoRank.push(tempoM1);
+      const playername = localStorage.getItem("player-name");
+      let tempo = parseInt(timer.innerHTML);
+      const tempoRank = [];
+      tempoRank.push({"nome" : playername, "tempo" : tempo}); 
+      console.log("ola")
 
-    const tempo2 = parseInt(localStorage.getItem("tempo2"));
-    tempoRank.push(tempoM2);
+      tempoRank.sort((a, b) => a.tempo - b.tempo);
+      
+      localStorage.setItem("ranking2", tempoRank)
 
-    const tempo3 = parseInt(localStorage.getItem("tempo3"));
-    tempoRank.push(tempoM3);
-
-
-    tempoRank.sort((a,b) => b.tempo - a.tempo);
-    localStorage.setItem("tempoM1", tempoRank[0]);
-    localStorage.setItem("tempoM2", tempoRank[1]);
-    localStorage.setItem("tempoM3", tempoRank[2]);
-    window.location.href = '../index.html';
+      alert(`Parabéns, ${playername}! Seu tempo foi de: ${timer.innerHTML} ${tempoRank}`);
+      window.location.href = '../index.html';
+    }, 600);
+    
     
   }
 

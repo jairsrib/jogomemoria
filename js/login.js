@@ -9,6 +9,7 @@ document.getElementById('start-game').addEventListener('click', () => {
         return;
     }
 
+    // Salvar nome do jogador no localStorage
     sessionStorage.setItem('playerName', playerName);
 
     // Redireciona para a página de jogo de acordo com a dificuldade
@@ -23,53 +24,32 @@ document.getElementById('start-game').addEventListener('click', () => {
 
 document.getElementById("difficulty-ranking").addEventListener('change', verificarSelecionado);
 
-function verificarSelecionado(){
+function verificarSelecionado() {
     console.log("ola")
     const select = document.getElementById('difficulty-ranking');
     const selecionado = select.value;
-    if(selecionado == "facil"){
-    
-
     const result = document.getElementById("result");
-    result.textContent = localStorage.getItem("ranking")
+    let rank = null;
+    result.innerHTML = "";
+    if (selecionado == "facil") {
+        rank = JSON.parse(localStorage.getItem("ranking"))
+    }
+    if (selecionado == "medio") {
+        rank = JSON.parse(localStorage.getItem("ranking2"))
+    }
+    if (selecionado == "dificil") {
+        rank = JSON.parse(localStorage.getItem("ranking3"))
+    }
+
+    if (rank) {
+        
+        result.innerHTML = "";
+        rank.forEach((ranking, index) => {
+            
+            result.innerHTML = result.innerHTML + (index + 1) + "° " + ranking.nome + " | " + "tempo : " + ranking.tempo + "<br>"
+        });
 
     }
 }
 
-let tempo1 = localStorage.getItem("tempo1");
 
-
-primeiroLugar.textContent(tempo1);
-
-function displayRanking(difficulty) {
-   
-    const ranking = JSON.parse(localStorage.getItem(`ranking-${difficulty}`)) || [];
-
-   
-    const result = document.getElementById('result');
-    result.innerHTML = ''; 
-
-  
-    if (ranking.length === 0) {
-        result.innerHTML = '<li>Sem registros para esta dificuldade</li>';
-        return;
-    }
-
-    
-    ranking.forEach((entry, index) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${index + 1}. ${entry.nome} - ${entry.tempo}s`;
-        result.appendChild(listItem);
-    });
-}
-
-
-document.getElementById('difficulty-ranking').addEventListener('change', (event) => {
-    const selectedDifficulty = event.target.value;
-    displayRanking(selectedDifficulty); 
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    displayRanking('facil'); 
-});

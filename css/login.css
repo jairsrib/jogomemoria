@@ -17,6 +17,7 @@ h1 {
     color: #333;
 }
 
+/* Container principal */
 .main-container {
     background-color: #fff;
     border-radius: 10px;
@@ -26,12 +27,13 @@ h1 {
     max-width: 400px;
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    text-align: center; 
+    align-items: center; /* Alinha os itens horizontalmente */
+    justify-content: center; /* Alinha os itens verticalmente */
+    text-align: center; /* Centraliza o texto */
 }
 
 
+/* Estilo para a seleção de dificuldade */
 .difficulty-selection {
     margin-bottom: 20px;
 }
@@ -52,6 +54,7 @@ h1 {
     background-color: #f9f9f9;
 }
 
+/* Estilo para o campo de nome */
 .name-input {
     margin-bottom: 20px;
 }
@@ -72,6 +75,7 @@ h1 {
     background-color: #f9f9f9;
 }
 
+/* Estilo para o botão de iniciar jogo */
 button {
     background-color: #4CAF50;
     color: white;
@@ -91,80 +95,50 @@ button:hover {
 button:active {
     background-color: #388e3c;
 }
+.ranking {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+}
+
 .ranking h2 {
-    margin-bottom: 20px;
     font-size: 24px;
-    color: #222;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .difficulty-ranking {
     margin-bottom: 15px;
-    text-align: left;
+    text-align: center;
 }
 
 .difficulty-ranking select {
-    width: 100%;
-    max-width: 200px;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #f4f4f4;
-    outline: none;
-    cursor: pointer;
-    transition: border 0.2s ease-in-out;
-}
-
-.difficulty-ranking select:hover {
-    border: 1px solid #999;
-}
-
-
-ul#ranking-list {
-    list-style: none; 
-    padding: 0;
-    margin: 0;
-}
-
-ul#ranking-list li {
-    padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 5px;
-    background: #f4f4f4;
-    margin-bottom: 10px; 
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.difficulty-ranking option {
+    padding: 10px;
     font-size: 16px;
-    text-align: left;
 }
 
-ul#ranking-list li:hover {
-    background: #eaeaea;
-}
-
-ul#ranking-list li:nth-child(odd) {
-    background: #f9f9f9;
-}
-
-ul#ranking-list li:first-child {
-    border: 2px solid #ffbf00;
-    background: #fff9e6;
-    font-weight: bold;
-}
-
-ul#ranking-list li:nth-child(2) {
-    border: 2px solid #c0c0c0;
-    background: #f8f8f8;
-    font-weight: bold;
-}
-
-ul#ranking-list li:nth-child(3) {
-    border: 2px solid #cd7f32;
-    background: #faf2e3;
-    font-weight: bold;
-}
-
-
-input:invalid, select:invalid {
-    border: 1px solid red;
+#result {
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 20px;
 }
 
 @media (max-width: 600px) {

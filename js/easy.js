@@ -29,29 +29,20 @@ const checkEndGame = () => {
     setTimeout(function ganhou() {
       clearInterval(this.loop);
 
-      // Obtém o nome do jogador e o tempo atual
       const playername = localStorage.getItem("player-name");
       let tempo = parseInt(timer.innerHTML);
+      let tempoRank = JSON.parse(localStorage.getItem("ranking"));
+      tempoRank.push({"nome" : playername, "tempo" : tempo}); 
+      console.log("ola")
 
-      // Recupera o ranking existente ou cria um novo array
-      let tempoRank = JSON.parse(localStorage.getItem("ranking")) || [];
-
-      // Adiciona o novo registro ao ranking
-      tempoRank.push({ "nome": playername, "tempo": tempo });
-
-      // Ordena o ranking por tempo (menor para maior)
       tempoRank.sort((a, b) => a.tempo - b.tempo);
 
-      // Atualiza o ranking no localStorage
-      localStorage.setItem("ranking", JSON.stringify(tempoRank));
+      tempoRank = tempoRank.slice(0,3);
+      
+      localStorage.setItem("ranking", JSON.stringify(tempoRank))
 
-      // Exibe mensagem com o tempo do jogador e o ranking atual
-      let rankText = tempoRank.map((entry, index) => `${index + 1}. ${entry.nome} - ${entry.tempo}s`).join('\n');
-      alert(`Parabéns, ${playername}! Seu tempo foi de: ${tempo}s\n\nRanking Atual:\n${rankText}`);
-
-      // Redireciona para a página inicial
+      alert(`Parabéns, ${playername}! Seu tempo foi de: ${timer.innerHTML} ${JSON.stringify(tempoRank)}`);
       window.location.href = '../index.html';
-
     }, 600);
   }
 }
