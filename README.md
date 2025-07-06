@@ -15,10 +15,7 @@ O projeto foi criado com foco em praticar **manipulação do DOM**, **eventos**,
 ---
 
 ## 📸 Captura de tela
-
-<img src="https://raw.githubusercontent.com/jairsrib/jogomemoria/main/assets/captura-jogo.png" alt="Jogo da Memória" width="600">
-
-> 💡 (Se não tiver uma imagem, posso te ajudar a tirar uma e subir no projeto para exibir aqui.)
+![image](https://github.com/user-attachments/assets/da8769f0-84d8-402e-a506-e6826d5e199f)
 
 ---
 
